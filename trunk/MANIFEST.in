@@ -1,0 +1,7 @@
+include mm2s5/*.py
+include CHANGELOG.txt
+include TODO.txt
+include setup.py
+include ez_setup.py
+exclude .svn
+prune .svn

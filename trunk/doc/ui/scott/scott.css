@@ -1,0 +1,22 @@
+table {
+  border-width: 1px 1px 1px 1px;
+  border-spacing: 2px;
+  border-style: inset inset inset inset;
+  border-color: gray gray gray gray;
+  border-collapse: collapse;
+  background-color: white;
+}
+table th {
+  border-width: 2px 2px 2px 2px;
+  padding: 3px 3px 3px 3px;
+  border-style: outset outset outset outset;
+  border-color: black black black black;
+  background-color: rgb(250, 240, 230);
+}
+table td {
+  border-width: 2px 2px 2px 2px;
+  padding: 3px 3px 3px 3px;
+  border-style: outset outset outset outset;
+  border-color: black black black black;
+  background-color: rgb(250, 240, 230);
+}

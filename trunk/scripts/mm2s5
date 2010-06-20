@@ -1,0 +1,4 @@
+#!python
+import mm2s5.mm2s5
+mm2s5.mm2s5.parse_command_line()
+

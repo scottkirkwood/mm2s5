@@ -1,0 +1,6 @@
+Things That Need to be Done
+---------------------------
+
++ Accept streaming text instead of filename
++ Accept parameters or .config file for defaults for name, etc.
++ Support notes and the newer S5 libraries.

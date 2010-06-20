@@ -1,0 +1,10 @@
+Verions 0.2 (2009-03-01)
+------------------------
+
+- Make it work for Freemind 0.9 (patch from Iceberg).
+
+
+Version 0.1 (2007-03-23)
+------------------------
+Initial release
+
