@@ -33,13 +33,13 @@ The icons can have special meaning:
 """
 
 __author__ = 'scott@forusers.com (Scott Kirkwood)'
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 import re
 import os
 import sys
 from optparse import OptionParser
-import xml.etree as ElementTree
+from xml.etree import ElementTree
 import codecs
 
 class Mm2S5:
@@ -79,7 +79,7 @@ class Mm2S5:
 
   def xmlparse(self, text):
     """ import the XML text into self.et_in  """
-    return  elementtree.ElementTree.XML(text)
+    return ElementTree.XML(text)
 
   def convert(self):
     """ Convert self.et_in to a HTML as a list of lines in S5 format """
@@ -246,6 +246,8 @@ class Mm2S5:
 
     indent = '  ' * (depth + 3)
     lines = []
+    if not text:
+      return lines
     text = text.replace('<html>', '')
     if 'LINK'in line.attrib:
       text = '<a href="%s">%s</a>' % (line.attrib['LINK'], text)

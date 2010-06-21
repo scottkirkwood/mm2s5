@@ -1,3 +1,7 @@
+Version 0.2.2 (2010-05-20)
+--------------------------
+- Bad release, didn't run test.
+
 Version 0.2.1 (2010-05-20)
 --------------------------
 - Change the release to use pybdist release framework.
