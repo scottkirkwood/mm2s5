@@ -29,6 +29,8 @@ if __name__ == '__main__':
                     help='Only upload to pypi')
   parser.add_option('--freshmeat', dest='freshmeat', action='store_true',
                     help='Announce on freshmeat')
+  parser.add_option('--twitter', dest='twitter', action='store_true',
+                    help='Announce on twitter')
   parser.add_option('--all', dest='all', action='store_true',
                     help='Do everything')
   (options, args) = parser.parse_args()
@@ -52,6 +54,8 @@ if __name__ == '__main__':
     pybdist.UploadToPyPi(setup)
   elif options.freshmeat:
     pybdist.AnnounceOnFreshmeat(setup)
+  elif options.twitter:
+    pybdist.AnnounceOnTwitter(setup)
   elif options.all:
     pybdist.BuildMan(setup)
     pybdist.BuildZipTar(setup)
@@ -59,5 +63,6 @@ if __name__ == '__main__':
     pybdist.UploadToGoogleCode(setup)
     pybdist.UploadToPyPi(setup)
     pybdist.AnnounceOnFreshmeat(setup)
+    pybdist.AnnounceOnTwitter(setup)
   else:
     print 'Doing nothing.  --help for commands.'
