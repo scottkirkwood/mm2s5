@@ -1,3 +1,11 @@
+Release Notes
+=============
+
+Version 0.2.3 (2010-05-21)
+--------------------------
+- This version at least creates the same output as the older version, minus a few spaces and empty
+  line items.
+
 Version 0.2.2 (2010-05-20)
 --------------------------
 - Bad release, didn't run test.

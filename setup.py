@@ -4,7 +4,7 @@ from distutils.core import setup
 import re
 
 NAME='mm2s5'
-VER='0.2.2'
+VER='0.2.3'
 DIR='mm2s5'
 PY_NAME=NAME
 DEB_NAME=NAME

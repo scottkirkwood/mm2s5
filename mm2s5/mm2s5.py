@@ -33,7 +33,7 @@ The icons can have special meaning:
 """
 
 __author__ = 'scott@forusers.com (Scott Kirkwood)'
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 
 import re
 import os
