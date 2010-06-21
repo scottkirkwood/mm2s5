@@ -226,12 +226,15 @@ class Mm2S5:
     for line in sub.findall('node'):
       text = line.attrib.get('TEXT') # Probably due to FreeMind 0.9, we might not have TEXT attribute
       if not text: # FreeMind 0.9 's HTML node stores text in html format
-        text=(line
+        p = (line
           ._children[0]#Element richcontent
           ._children[0]#Element html
           ._children[1]#Element body
-          ._children[0]#Element p
-          .text)
+          ._children[0])#Element p
+        if p.text:
+          text=p.text
+        elif p.tag == 'img':
+          text='<img src="%s">' % p.get('src')
       if text == '__table__':
         lines += self._insert_table(text, line, depth)
       else:
