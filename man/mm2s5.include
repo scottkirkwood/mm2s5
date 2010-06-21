@@ -1,0 +1,22 @@
+[NAME]
+mm2s5 \- Convert MindMaper (.mm) file to an S5 html presentation.
+
+[SYNOPSIS]
+.B mm2s5 [options]
+
+[DESCRIPTON]
+.B mm2s5
+is a utility to convert a .mm file into a S5 html presentation.
+.PP
+
+[SEE ALSO]
+Full documentation for
+.B keymon
+is available at
+.IP
+.B http://code.google.com/p/mm2s5
+.PP
+Send bugs to
+.IP
+.B http://code.google.com/p/mm2s5/issues/list
+.PP

@@ -1,30 +1,35 @@
 #!/usr/bin/env python
 
-from ez_setup import use_setuptools
-use_setuptools()
-from setuptools import setup, find_packages
+from distutils.core import setup
+import re
 
-# Note to self:
-# python setup.py sdist --formats=zip
-# To create the zip file
+NAME='mm2s5'
+VER='0.2.1'
+DIR='mm2s5'
+PY_NAME=NAME
+DEB_NAME=NAME
+RELEASE_FILE='CHANGELOG.txt'
+RELEASE_FORMAT=r'Version (?P<ver>[^ ]+) \((?P<date>[^)]+)\)'
 
-# python setup.py --command-packages=setuptools.command bdist_egg
-# To create the egg file
+PY_SRC='%s.py' % PY_NAME
+DEPENDS=[]
+MENU_SUBSECTION='Utils'
+DEPENDS_STR=' '.join(DEPENDS)
+AUTHOR_NAME='Scott Kirkwood'
+GOOGLE_CODE_EMAIL='scott@forusers.com'
+KEYWORDS=['mm', 'S5', 'FreeMind', 'Presentation', 'XML', 'Python']
+MAN_FILE='man/%s.1' % NAME
+DESKTOP_FILE=None
+ICON=None
+COMMAND='/usr/bin/%s' % NAME
 
-# python setup.py register
-# to register with PyPI
-# 
-
-# create an egg and upload it
-# setup.py register bdist_egg upload
-
-# Set this on command line
-# DISTUTILS_DEBUG=true
-# 
-setup(
-    name='mm2s5',
-    version='0.2.0',
-    description="Convert a FreeMind mind-map (mm) into an S5 (html) presentation.",
+SETUP = dict(
+    name=NAME,
+    version=VER,
+    packages=[NAME],
+    package_dir = {
+        NAME: NAME},
+    description="Convert a FreeMind mind-map (mm) into an S5 (html) presentation",
     long_description=
 """This is a simple utility to convert a FreeMind mind-map (.mm) into an S5 (html) presentation.  
 The root node becomes the start page and each top level node below that becomes a slide.
@@ -32,18 +37,18 @@ Lower level nodes become increasingly nested lists.
 Images are also supported.
 """,
     author='Scott Kirkwood',
-    author_email='scottakirkwood@gmail.com',
-    url='http://code.google.com/mm2s5/',
-    download_url='http://mm2s5.googlecode.com/files/mm2s5-0.1.0.zip',
-    keywords=['mm', 'S5', 'FreeMind', 'Presentation', 'XML', 'Python'],
-    license='GNU GPL',
+    author_email='scott@forusers.com',
+    url='http://code.google.com/%s/' % NAME,
+    download_url='http://%s.googlecode.com/files/%s-%s.zip' % (NAME, NAME, VER),
+    keywords=' '.join(KEYWORDS),
+    license='Apache 2.0',
     platforms=['POSIX', 'Windows'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
@@ -54,6 +59,33 @@ Images are also supported.
         'Topic :: Text Processing :: Markup :: XML',
         'Topic :: Utilities',
     ], 
-    packages=['mm2s5'],
     scripts=['scripts/mm2s5'],
 )
+
+COPYRIGHT = 'Copyright (C) 2010 %s' % (AUTHOR_NAME) # pylint: disable-msg=W0622
+LICENSE_TITLE = 'Apache License'
+LICENSE_SHORT = 'Apache'
+LICENSE_VERSION = '2.0'
+LICENSE_TITLE_AND_VERSION = '%s version %s' % (LICENSE_TITLE, LICENSE_VERSION)
+LICENSE = '%s or any later version' % LICENSE_TITLE_AND_VERSION # pylint: disable-msg=W0622
+LICENSE_TITLE_AND_VERSION_ABBREV = '%s v%s' % (LICENSE_SHORT, LICENSE_VERSION)
+LICENSE_ABBREV = '%s+' % LICENSE_TITLE_AND_VERSION_ABBREV
+LICENSE_URL = 'http://www.apache.org/licenses/LICENSE-2.0'
+LICENSE_PATH = '/usr/share/common-licenses/Apache-2.0'
+LICENSE_NOTICE = '''%(name)s is free software: you can redistribute it and/or modify
+it under the terms of the Apache License as published by
+the Apache Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+%(name)s is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the Apache License
+along with this program.  If not, see <%(url)s>.''' % dict(name=NAME, url=LICENSE_URL)
+LICENSE_NOTICE_HTML = '<p>%s</p>' % LICENSE_NOTICE.replace('\n\n', '</p><p>')
+LICENSE_NOTICE_HTML = re.sub(r'<http([^>]*)>', r'<a href="http\1" target="_blank">http\1</a>', LICENSE_NOTICE_HTML)
+
+if __name__ == '__main__':
+  setup(**SETUP)

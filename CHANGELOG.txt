@@ -1,8 +1,10 @@
-Verions 0.2 (2009-03-01)
+Version 0.2.1 (2010-05-20)
+--------------------------
+- Change the release to use pybdist release framework.
+
+Version 0.2 (2009-03-01)
 ------------------------
-
 - Make it work for Freemind 0.9 (patch from Iceberg).
-
 
 Version 0.1 (2007-03-23)
 ------------------------

@@ -32,13 +32,14 @@ The icons can have special meaning:
   The "Priority 1" icon will use an ordered list
 """
 
-__author__ = 'scottkirkwood@google.com (Scott Kirkwood)'
+__author__ = 'scott@forusers.com (Scott Kirkwood)'
+__version__ = '0.2.1'
 
 import re
 import os
 import sys
 from optparse import OptionParser
-import elementtree.ElementTree
+import xml.etree as ElementTree
 import codecs
 
 class Mm2S5:
@@ -274,13 +275,22 @@ class Mm2S5:
     lines.append('%s</table>' % (indent))
     return lines
 
+def show_version():
+    print 'mm2s5 version %s.' % __version__
+    print 'Written by %s' % __author__
+
 def parse_command_line():
     usage = """%prog <mmfile> [<htmloutput>]
 Create a FreeMind (.mm) document (see http://freemind.sourceforge.net/wiki/index.php/Main_Page)
 the main node will be the title page and the lower nodes will be pages.
 """
     parser = OptionParser(usage)
+    parser.add_option('-v', '--version', dest='version', action='store_true',
+                      help='Show version information and exit.')
     (options, args) = parser.parse_args()
+    if options.version:
+        show_version()
+        sys.exit(0)
     if len(args) == 0:
         parser.print_usage()
         sys.exit(-1)
