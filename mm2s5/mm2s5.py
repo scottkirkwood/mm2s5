@@ -48,10 +48,8 @@ The icons can have special meaning:
 __author__ = 'scott@forusers.com (Scott Kirkwood)'
 __version__ = '0.2.3'
 
-import re
-import os
 import sys
-from optparse import OptionParser
+import optparse
 from xml.etree import ElementTree
 import codecs
 
@@ -171,14 +169,14 @@ class Mm2S5:
     ret = {}
 
     for icon in page.findall('icon'):
-      type = icon.attrib['BUILTIN']
-      if type == 'button_ok':
+      icon_type = icon.attrib['BUILTIN']
+      if icon_type == 'button_ok':
         ret['no_ul'] = True
-      elif type == "stop": # Stop light icon
+      elif icon_type == "stop": # Stop light icon
         ret['ul_class'] = "incremental"
-      elif type == 'button_cancel':
+      elif icon_type == 'button_cancel':
         ret['skip'] = True
-      elif type == 'full-1':
+      elif icon_type == 'full-1':
         ret['ol'] = True
 
     # Special case, if the first node starts with <
@@ -276,7 +274,7 @@ class Mm2S5:
 
     return lines
 
-  def _insert_table(self, text, line, depth):
+  def _insert_table(self, unused_text, line, depth):
     """ If we get a special node called __table__ insert the children
     as rows in a table (descendants are columns in that row) """
 
@@ -302,7 +300,7 @@ def parse_command_line():
 Create a FreeMind (.mm) document (see http://freemind.sourceforge.net/wiki/index.php/Main_Page)
 the main node will be the title page and the lower nodes will be pages.
 """
-    parser = OptionParser(usage)
+    parser = optparse.OptionParser(usage)
     parser.add_option('-v', '--version', dest='version', action='store_true',
                       help='Show version information and exit.')
     (options, args) = parser.parse_args()
