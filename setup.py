@@ -43,9 +43,9 @@ SETUP = dict(
     packages=[NAME],
     package_dir = {
         NAME: NAME},
-    description="Convert a FreeMind mind-map (mm) into an S5 (html) presentation",
+    description="Convert a FreeMind mind-map (mm) into an S5 (HTML) presentation",
     long_description=
-"""This is a simple utility to convert a FreeMind mind-map (.mm) into an S5 (html) presentation.
+"""This is a simple utility to convert a FreeMind mind-map (.mm) into an S5 (HTML) presentation.
 The root node becomes the start page and each top level node below that becomes a slide.
 Lower level nodes become increasingly nested lists.
 Images are also supported.

@@ -1,7 +1,7 @@
 mm2s5 (0.2.3-1) unstable; urgency=low
 
-  * This version at least creates the same output as the older version, minus
-    a few spaces and empty line items.
+  - This version at least creates the same output as the older version, minus a few spaces and empty
+    line items.
 
- -- Scott Kirkwood <scott@forusers.com>  Sun, 11 Jul 2010 12:13:14 +0300
+ -- Scott Kirkwood <scott@forusers.com>  Sat, 25 Dec 2010 18:33:23 +0300
 
