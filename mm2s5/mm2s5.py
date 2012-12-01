@@ -203,8 +203,9 @@ class Mm2S5:
         for sub_attrib in cur_node.findall('node'):
           key = sub_attrib.attrib['TEXT']
           sub_value = sub_attrib.find('node')
-          value = sub_value.attrib['TEXT']
-          self.meta[key] = value
+          if sub_value:
+            value = sub_value.attrib['TEXT']
+            self.meta[key] = value
 
     if self.meta['footer'] == None:
       self.meta['footer'] = '<h1>%(company)s</h2><h2>%(title)s</h2>' % self.meta
